@@ -1,0 +1,13 @@
+.catalogue-main{
+   margin-top: 20px; 
+    
+}
+.main-container{
+    display: grid;
+    grid-template-columns:4fr 1fr;
+
+}
+.product-part{
+
+    
+}
