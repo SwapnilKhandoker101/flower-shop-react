@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 const Product = (props) => {
 
-    const img=props.img
+    const {price,img,name}=props.product;
 
 
 
@@ -20,12 +20,12 @@ const Product = (props) => {
                 <Card style={{ width: '18rem',height: '500px'  }}>
                     <Card.Img variant="top" src={img} />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>{name}</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            Price:${price}
+                            
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="primary">Add to Cart</Button>
                     </Card.Body>
                 </Card>
 

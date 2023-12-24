@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Catalogue.css"
 import Product from '../Product/Product';
 import product1 from "../../images/product1.png"
@@ -12,7 +12,16 @@ import Row from 'react-bootstrap/Row';
 
 const Catalogue = () => {
 
-    let products = [product1, product2, product3,product1, product2, product3]
+    const[products,setProducts]=useState([]);
+
+    useEffect(()=>{
+        fetch("products.json")
+        .then(res=>res.json())
+        .then(data=>setProducts(data))
+        
+
+    }
+    ,[]);
 
 
     return (
@@ -28,11 +37,12 @@ const Catalogue = () => {
 
                     <Row xs={1} md={3} className="g-2">
                         {products.map((product) => (
-                            <Col key={product.id} className='mt-5'>
+                            <Col key={product.id}   className='mt-5'>
                                 <Product
-                                    img={product}
+                                    key={product.id}
+                                    product={product}
    
-                                />
+                                ></Product>
                             </Col>
                         ))}
                     </Row>
