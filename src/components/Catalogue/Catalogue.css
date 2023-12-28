@@ -1,5 +1,7 @@
 .catalogue-main{
-   margin-top: 20px; 
+   
+  
+
     
 }
 .main-container{
@@ -9,5 +11,11 @@
 }
 .product-part{
 
+    
+}
+.cart-part{
+    width: 100%;
+    background-color: #F8F3EC;
+    
     
 }

@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Cart from '../Cart/Cart';
 
 
 const Catalogue = () => {
@@ -29,8 +30,8 @@ const Catalogue = () => {
             <div className="title text-center ">
 
             </div>
-            <div className='main-container mt-5'>
-                <div className="product-part ms-4">
+            <div className='main-container'>
+                <div className="product-part ms-4 mt-5">
                     {/* <Product img={product1}></Product>
                     <Product img={product2}></Product>
                     <Product img={product3}></Product> */}
@@ -50,8 +51,8 @@ const Catalogue = () => {
 
                 </div>
 
-                <div className="cart-part">
-                    <h1>Hello from cart part</h1>
+                <div className=" me-5 mt-0 cart-part">
+                    <Cart></Cart>
 
                 </div>
             </div>
