@@ -9,11 +9,13 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Cart from '../Cart/Cart';
+import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 
 
 const Catalogue = () => {
 
     const[products,setProducts]=useState([]);
+    const[cart,setCart]=useState([])
 
     useEffect(()=>{
         fetch("products.json")
@@ -24,6 +26,50 @@ const Catalogue = () => {
     }
     ,[]);
 
+    useEffect(()=>{
+        const storedCart=getShoppingCart()
+        const savedCart=[]
+
+        for (const id in storedCart){
+            const addedProduct=products.find(product=>product.id==id)
+
+            if (addedProduct){
+                const quantity=storedCart[id]
+                addedProduct.quantity=quantity
+                savedCart.push(addedProduct)
+
+            }
+        }
+        setCart(savedCart)
+
+
+
+    },[products])
+
+    const handleAddToCart=(product)=>{
+        // state is immutable in react
+        // const newCart=[...cart,product];
+        //if product does not exist in the cart , then set quantity =1
+        //if exist then update the quantity by 1
+        let newCart=[];
+        const exist=cart.find(pd=>pd.id==product.id);
+        if(!exist){
+            product.quantity=1
+            newCart=[...cart,product]
+        }else{
+            exist.quantity=exist.quantity+1 
+            const remaining=cart.filter(pd=>pd.id!== product.id)
+            newCart=[...remaining,exist]
+        }
+
+
+
+        setCart(newCart);
+        addToDb(product.id);
+
+        
+    }
+
 
     return (
         <div className='catalogue-main'>
@@ -32,9 +78,7 @@ const Catalogue = () => {
             </div>
             <div className='main-container'>
                 <div className="product-part ms-4 mt-5">
-                    {/* <Product img={product1}></Product>
-                    <Product img={product2}></Product>
-                    <Product img={product3}></Product> */}
+                 
 
                     <Row xs={1} md={3} className="g-2">
                         {products.map((product) => (
@@ -42,6 +86,7 @@ const Catalogue = () => {
                                 <Product
                                     key={product.id}
                                     product={product}
+                                    handleAddToCart={handleAddToCart}
    
                                 ></Product>
                             </Col>
@@ -52,7 +97,7 @@ const Catalogue = () => {
                 </div>
 
                 <div className=" me-5 mt-0 cart-part">
-                    <Cart></Cart>
+                    <Cart cart={cart}></Cart>
 
                 </div>
             </div>

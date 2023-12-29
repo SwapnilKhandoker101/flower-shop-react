@@ -1,0 +1,31 @@
+.item-container {
+    display: flex;
+
+}
+
+.item {
+   
+    /* border: 1px solid #ccc; */
+    
+    
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    margin-top: 15px;
+}
+.item h6{
+    padding:0 5px 0 5px;
+}
+
+.item img {
+    
+    max-width: 50px; 
+}
+.btn-delete{
+    background-color: #F8F3EC;
+    padding: 2px;
+    margin:0 5px 0 5px;
+    border: 2px solid  #838281 ;
+    border-radius:10px ;
+}
+

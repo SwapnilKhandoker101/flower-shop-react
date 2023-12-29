@@ -3,30 +3,35 @@
       "id": "658215babf450370fcbd4c13",
       "price": 174,
       "img":"./images/product1.png",
-      "name": "Rose"
+      "name": "Rose",
+      "quantity": 0
     },
     {
       "id": "658215ba22688bfd43768797",
       "price": 225,
       "img":"./images/Product2.png",
-      "name": "Tulip"
+      "name": "Tulip",
+      "quantity": 0
     },
     {
       "id": "658215bafe9dc9867a0dd6b0",
       "price": 267,
       "img":"./images/Product3.png",
-      "name": "Sondagonda"
+      "name": "Sondagonda",
+      "quantity": 0
+    },
+    {
+      "id": "658215ba6ca52495b49beb58",
+      "price": 99,
+      "img":"./images/Product3.png",
+      "name": "WaterLily",
+      "quantity": 0
     },
     {
       "id": "658215ba6ca52495b49beb51",
       "price": 99,
       "img":"./images/Product3.png",
-      "name": "WaterLily"
-    },
-    {
-      "id": "658215ba6ca52495b49beb51",
-      "price": 99,
-      "img":"./images/Product3.png",
-      "name": "WaterLily"
+      "name": "WaterLily",
+      "quantity": 0
     }
   ]

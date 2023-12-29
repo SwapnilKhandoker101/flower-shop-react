@@ -7,6 +7,8 @@ import Card from 'react-bootstrap/Card';
 const Product = (props) => {
 
     const {price,img,name}=props.product;
+    
+    const handleAddToCart=props.handleAddToCart;
 
 
 
@@ -25,7 +27,9 @@ const Product = (props) => {
                             Price:${price}
                             
                         </Card.Text>
-                        <Button variant="primary">Add to Cart</Button>
+                        <Button variant="primary"
+                        onClick={()=>handleAddToCart(props.product)}
+                        >Add to Cart</Button>
                     </Card.Body>
                 </Card>
 
